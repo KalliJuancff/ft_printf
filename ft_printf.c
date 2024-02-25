@@ -6,36 +6,16 @@
 /*   By: jfidalgo <jfidalgo@student.42bar(...).com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 09:43:05 by jfidalgo          #+#    #+#             */
-/*   Updated: 2024/02/25 19:48:09 by jfidalgo         ###   ########.fr       */
+/*   Updated: 2024/02/25 21:21:43 by jfidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include "ft_printf.h"
 
-int	write_char(int ch)
-{
-	return (write(1, &ch, 1));
-}
-
-int	write_string(char *s)
-{
-	int	result;
-
-	if (s == NULL)
-		s = "(null)";
-	result = 0;
-	while (s[result] != '\0')
-	{
-		if (write_char(s[result]) == -1)
-			return (-1);
-		result++;
-	}
-	return (result);
-}
-
-int	write_format(va_list vargs, char format)
+static int	write_format(va_list vargs, char format)
 {
 	if (format == '%')
 		return (write_char('%'));
@@ -43,6 +23,8 @@ int	write_format(va_list vargs, char format)
 		return (write_char(va_arg(vargs, int)));
 	else if (format == 's')
 		return (write_string(va_arg(vargs, char *)));
+	else if (format == 'd' || format == 'i')
+		return (write_number(va_arg(vargs, int)));
 	return (write_char(format));
 }
 
