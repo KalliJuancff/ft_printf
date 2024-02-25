@@ -1,8 +1,79 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "ft_printf.h"
 
+
+int	main(void)
+{
+	printf(" C: %%\n");
+	ft_printf("FT: %%\n");
+	printf(" C: %d\n", printf("%%"));
+	printf("FT: %d\n", ft_printf("%%"));
+	printf("\n");
+
+
+	printf(" C: %c\n", 71);
+	ft_printf("FT: %c\n", 71);
+	printf(" C: %d\n", printf("%c", 71));
+	printf("FT: %d\n", ft_printf("%c", 71));
+	printf("\n");
+
+	printf(" C: %c\n", 103);
+	ft_printf("FT: %c\n", 103);
+	printf(" C: %d\n", printf("%c", 103));
+	printf("FT: %d\n", ft_printf("%c", 103));
+	printf("\n");
+
+	printf(" C: %c\n", 0);
+	ft_printf("FT: %c\n", 0);
+	printf(" C: %d\n", printf("%c", 0));
+	printf("FT: %d\n", ft_printf("%c", 0));
+	printf("\n");
+
+
+	printf(" C: %s\n", "GOTT");
+	ft_printf("FT: %s\n", "GOTT");
+	printf(" C: %d\n", printf("%s", "GOTT"));
+	printf("FT: %d\n", ft_printf("%s", "GOTT"));
+	printf("\n");
+
+	printf(" C: %s\n", "");
+	ft_printf("FT: %s\n", "");
+	printf(" C: %d\n", printf("%s", ""));
+	printf("FT: %d\n", ft_printf("%s", ""));
+	printf("\n");
+
+	printf(" C: %s\n", (char *) NULL);
+	ft_printf("FT: %s\n", (char *) NULL);
+	printf(" C: %d\n", printf("%s", (char *) NULL));
+	printf("FT: %d\n", ft_printf("%s", (char *) NULL));
+	printf("\n");
+
+
+	printf(" C: GOTT\n");
+	ft_printf("FT: GOTT\n");
+	printf(" C: %d\n", printf("GOTT"));
+	printf("FT: %d\n", ft_printf("GOTT"));
+	printf("\n");
+
+	printf(" C: %s\n", "");
+	ft_printf("FT: %s\n", "");
+	printf(" C: %d\n", printf("%s", ""));
+	printf("FT: %d\n", ft_printf("%s", ""));
+	printf("\n");
+
+	printf(" C: %s\n", (char *) NULL);
+	ft_printf("FT: %s\n", (char *) NULL);
+	printf(" C: %d\n", printf("%s", (char *) NULL));
+	printf("FT: %d\n", ft_printf("%s", (char *) NULL));
+	printf("\n");
+}
+
+
+/*
 #define FAIL(text) "\033[31m" text "\033[0m"
-#define SUCCESS(text) "\033[32m" text "\033[0m"
+E#define SUCCESS(text) "\033[32m" text "\033[0m"
+
 
 void	redirect_stdout_to_null()
 {
@@ -59,38 +130,5 @@ int	main(void)
 	test_return_value_printf_percentage_c1();
 	test_return_value_printf_percentage_c2();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-void	test_return_value_printf(char const *format, ...)
-{
-	va_list vargs;
-	int result_printf;
-
-	va_start(vargs, format);
-	result_printf = vprintf(format, vargs);
-	va_end(vargs);
-	printf("%d\n", result_printf);
-}
-
-int	main(void)
-{
-	printf("%d\n", ft_printf("%%"));
-	printf("%d\n", ft_printf("%c", 71));
-	printf("%d\n", ft_printf("GottDio"));
-
-	// test_return_value_printf("%d\n", 7);
-}
 */
+
