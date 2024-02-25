@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include "ft_printf.h"
 
+#define FAIL(text) "\033[31m" text "\033[0m"
+#define SUCCESS(text) "\033[32m" text "\033[0m"
+
 void	redirect_stdout_to_null()
 {
 	freopen("/dev/null", "w", stdout);
@@ -23,7 +26,7 @@ void	test_return_value_printf_percentage_percentage()
 
 	restore_stdout();
 
-	printf("%% [return]: %s", result_printf == result_ft ? "\033[32mOK\033[0m": "\033[31mKO\033[0m");
+	printf("%% [return]: %s", result_printf == result_ft ? SUCCESS("OK"): FAIL("KO!"));
 	printf(" (");
 	if (result_printf != result_ft)
 		printf("C: %d vs. FT: %d", result_printf, result_ft);
