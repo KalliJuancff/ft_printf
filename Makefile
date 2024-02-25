@@ -1,9 +1,13 @@
+# REGLA N:
 # target N/objetivo N	prerequisitos N/dependencias N/
 #	recipe N/acciones N/comandos N/instrucciones N
 
 
 NAME = libftprintf.a
-SRC_FILES = ft_printf.c
+SRC_FILES = ft_printf.c \
+	write_char.c \
+	write_string.c \
+	write_number.c
 OBJ_FILES = ${SRC_FILES:.c=.o}
 DEP_FILES = ${SRC_FILES:.c=.d}
 
@@ -17,7 +21,7 @@ ${NAME}: ${OBJ_FILES}
 -include ${DEP_FILES}
 
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re  norm comp run
 
 all: ${NAME}
 
@@ -29,3 +33,12 @@ fclean: clean
 	rm -f ${NAME}
 
 re: fclean all
+
+norm:
+	norminette ${SRC_FILES} *.h
+
+comp:
+	gcc -Wall -Wextra -Werror -Wno-format ${SRC_FILES}  main.c
+
+run:
+	@./a.out
