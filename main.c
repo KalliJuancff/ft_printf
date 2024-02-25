@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 #include "ft_printf.h"
 
 
@@ -69,10 +70,91 @@ int	main(void)
 	printf(   "\n");
 
 
+	printf(   " C: %d\n", 7);
+	ft_printf("FT: %d\n", 7);
+	printf(   " C: %d\n", printf(   "%d", 7));
+	printf(   "FT: %d\n", ft_printf("%d", 7));
+
+	printf(   " C: %d\n", -7);
+	ft_printf("FT: %d\n", -7);
+	printf(   " C: %d\n", printf(   "%d", -7));
+	printf(   "FT: %d\n", ft_printf("%d", -7));
+
+	printf(   " C: %d\n", 0);
+	ft_printf("FT: %d\n", 0);
+	printf(   " C: %d\n", printf(   "%d", 0));
+	printf(   "FT: %d\n", ft_printf("%d", 0));
+
+	printf(   " C: %d\n", 25);
+	ft_printf("FT: %d\n", 25);
+	printf(   " C: %d\n", printf(   "%d", 25));
+	printf(   "FT: %d\n", ft_printf("%d", 25));
+
+	printf(   " C: %d\n", -43);
+	ft_printf("FT: %d\n", -43);
+	printf(   " C: %d\n", printf(   "%d", -43));
+	printf(   "FT: %d\n", ft_printf("%d", -43));
+
+	printf(   " C: %d\n", INT_MAX);
+	ft_printf("FT: %d\n", INT_MAX);
+	printf(   " C: %d\n", printf(   "%d", INT_MAX));
+	printf(   "FT: %d\n", ft_printf("%d", INT_MAX));
+
+	printf(   " C: %d\n", INT_MIN);
+	ft_printf("FT: %d\n", INT_MIN);
+	printf(   " C: %d\n", printf(   "%d", INT_MIN));
+	printf(   "FT: %d\n", ft_printf("%d", INT_MIN));
+	printf(   "\n");
+
+
+	printf(   " C: %i\n", 7);
+	ft_printf("FT: %i\n", 7);
+	printf(   " C: %i\n", printf(   "%d", 7));
+	printf(   "FT: %i\n", ft_printf("%d", 7));
+
+	printf(   " C: %i\n", -7);
+	ft_printf("FT: %i\n", -7);
+	printf(   " C: %i\n", printf(   "%d", -7));
+	printf(   "FT: %i\n", ft_printf("%d", -7));
+
+	printf(   " C: %i\n", 0);
+	ft_printf("FT: %i\n", 0);
+	printf(   " C: %i\n", printf(   "%d", 0));
+	printf(   "FT: %i\n", ft_printf("%d", 0));
+
+	printf(   " C: %i\n", 25);
+	ft_printf("FT: %i\n", 25);
+	printf(   " C: %i\n", printf(   "%d", 25));
+	printf(   "FT: %i\n", ft_printf("%d", 25));
+
+	printf(   " C: %i\n", -43);
+	ft_printf("FT: %i\n", -43);
+	printf(   " C: %i\n", printf(   "%d", -43));
+	printf(   "FT: %i\n", ft_printf("%d", -43));
+
+	printf(   " C: %i\n", INT_MAX);
+	ft_printf("FT: %i\n", INT_MAX);
+	printf(   " C: %i\n", printf(   "%d", INT_MAX));
+	printf(   "FT: %i\n", ft_printf("%d", INT_MAX));
+
+	printf(   " C: %i\n", INT_MIN);
+	ft_printf("FT: %i\n", INT_MIN);
+	printf(   " C: %i\n", printf(   "%d", INT_MIN));
+	printf(   "FT: %i\n", ft_printf("%d", INT_MIN));
+	printf(   "\n");
+
+
 	printf(   " C: %w\n", 7);
 	ft_printf("FT: %w\n", 7);
 	printf(   " C: %d\n", printf(   "%w", 71));
 	printf(   "FT: %d\n", ft_printf("%w", 71));
+	printf(   "\n");
+
+
+	printf(   " C: NULL\n");
+	ft_printf("FT: NULL\n");
+	printf(   " C: %d\n", printf(   NULL));
+	printf(   "FT: %d\n", ft_printf(NULL));
 	printf(   "\n");
 }
 
