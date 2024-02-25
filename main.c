@@ -5,68 +5,75 @@
 
 int	main(void)
 {
-	printf(" C: %%\n");
+	printf(   " C: %%\n");
 	ft_printf("FT: %%\n");
-	printf(" C: %d\n", printf("%%"));
-	printf("FT: %d\n", ft_printf("%%"));
-	printf("\n");
+	printf(   " C: %d\n", printf(   "%%"));
+	printf(   "FT: %d\n", ft_printf("%%"));
+	printf(   "\n");
 
 
-	printf(" C: %c\n", 71);
+	printf(   " C: %c\n", 71);
 	ft_printf("FT: %c\n", 71);
-	printf(" C: %d\n", printf("%c", 71));
-	printf("FT: %d\n", ft_printf("%c", 71));
-	printf("\n");
+	printf(   " C: %d\n", printf(   "%c", 71));
+	printf(   "FT: %d\n", ft_printf("%c", 71));
+	printf(   "\n");
 
-	printf(" C: %c\n", 103);
+	printf(   " C: %c\n", 103);
 	ft_printf("FT: %c\n", 103);
-	printf(" C: %d\n", printf("%c", 103));
-	printf("FT: %d\n", ft_printf("%c", 103));
-	printf("\n");
+	printf(   " C: %d\n", printf(   "%c", 103));
+	printf(   "FT: %d\n", ft_printf("%c", 103));
+	printf(   "\n");
 
-	printf(" C: %c\n", 0);
+	printf(   " C: %c\n", 0);
 	ft_printf("FT: %c\n", 0);
-	printf(" C: %d\n", printf("%c", 0));
-	printf("FT: %d\n", ft_printf("%c", 0));
-	printf("\n");
+	printf(   " C: %d\n", printf(   "%c", 0));
+	printf(   "FT: %d\n", ft_printf("%c", 0));
+	printf(   "\n");
 
 
-	printf(" C: %s\n", "GOTT");
+	printf(   " C: %s\n", "GOTT");
 	ft_printf("FT: %s\n", "GOTT");
-	printf(" C: %d\n", printf("%s", "GOTT"));
-	printf("FT: %d\n", ft_printf("%s", "GOTT"));
-	printf("\n");
+	printf(   " C: %d\n", printf(   "%s", "GOTT"));
+	printf(   "FT: %d\n", ft_printf("%s", "GOTT"));
+	printf(   "\n");
 
-	printf(" C: %s\n", "");
+	printf(   " C: %s\n", "");
 	ft_printf("FT: %s\n", "");
-	printf(" C: %d\n", printf("%s", ""));
-	printf("FT: %d\n", ft_printf("%s", ""));
-	printf("\n");
+	printf(   " C: %d\n", printf(   "%s", ""));
+	printf(   "FT: %d\n", ft_printf("%s", ""));
+	printf(   "\n");
 
-	printf(" C: %s\n", (char *) NULL);
+	printf(   " C: %s\n", (char *) NULL);
 	ft_printf("FT: %s\n", (char *) NULL);
-	printf(" C: %d\n", printf("%s", (char *) NULL));
-	printf("FT: %d\n", ft_printf("%s", (char *) NULL));
-	printf("\n");
+	printf(   " C: %d\n", printf(   "%s", (char *) NULL));
+	printf(   "FT: %d\n", ft_printf("%s", (char *) NULL));
+	printf(   "\n");
 
 
-	printf(" C: GOTT\n");
+	printf(   " C: GOTT\n");
 	ft_printf("FT: GOTT\n");
-	printf(" C: %d\n", printf("GOTT"));
-	printf("FT: %d\n", ft_printf("GOTT"));
-	printf("\n");
+	printf(   " C: %d\n", printf(   "GOTT"));
+	printf(   "FT: %d\n", ft_printf("GOTT"));
+	printf(   "\n");
 
-	printf(" C: %s\n", "");
+	printf(   " C: %s\n", "");
 	ft_printf("FT: %s\n", "");
-	printf(" C: %d\n", printf("%s", ""));
-	printf("FT: %d\n", ft_printf("%s", ""));
-	printf("\n");
+	printf(   " C: %d\n", printf(   "%s", ""));
+	printf(   "FT: %d\n", ft_printf("%s", ""));
+	printf(   "\n");
 
-	printf(" C: %s\n", (char *) NULL);
+	printf(   " C: %s\n", (char *) NULL);
 	ft_printf("FT: %s\n", (char *) NULL);
-	printf(" C: %d\n", printf("%s", (char *) NULL));
-	printf("FT: %d\n", ft_printf("%s", (char *) NULL));
-	printf("\n");
+	printf(   " C: %d\n", printf(   "%s", (char *) NULL));
+	printf(   "FT: %d\n", ft_printf("%s", (char *) NULL));
+	printf(   "\n");
+
+
+	printf(   " C: %w\n", 7);
+	ft_printf("FT: %w\n", 7);
+	printf(   " C: %d\n", printf(   "%w", 71));
+	printf(   "FT: %d\n", ft_printf("%w", 71));
+	printf(   "\n");
 }
 
 
