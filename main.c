@@ -14,19 +14,12 @@ void	restore_stdout()
 	freopen("/dev/tty", "w", stdout);
 }
 
-void	test_return_value_printf_percentage_percentage()
+
+void	test_return_value_printf_percentage_x(char *conversionChar, int result_printf, int result_ft)
 {
-	int result_printf;
-	int result_ft;
-
-	redirect_stdout_to_null();
-
-	result_printf = printf("%%");
-	result_ft = ft_printf("%%");
-
 	restore_stdout();
 
-	printf("%%%% [return]: %s", result_printf == result_ft ? SUCCESS("OK"): FAIL("KO!"));
+	printf("%%%s [return]: %s", conversionChar, result_printf == result_ft ? SUCCESS("OK"): FAIL("KO!"));
 	printf(" (");
 	if (result_printf != result_ft)
 		printf("C: %d vs. FT: %d", result_printf, result_ft);
@@ -35,32 +28,36 @@ void	test_return_value_printf_percentage_percentage()
 	printf(")\n");
 }
 
-void	test_return_value_printf_percentage_c()
-{
-	int result_printf;
-	int result_ft;
 
+void	test_return_value_printf_percentage_percentage()
+{
 	redirect_stdout_to_null();
 
-	result_printf = printf("%c", 71);
-	result_ft = ft_printf("%c", 71);
+	test_return_value_printf_percentage_x("%", printf("%%"), ft_printf("%%"));
+}
 
-	restore_stdout();
 
-	printf("%%c [return]: %s", result_printf == result_ft ? SUCCESS("OK"): FAIL("KO!"));
-	printf(" (");
-	if (result_printf != result_ft)
-		printf("C: %d vs. FT: %d", result_printf, result_ft);
-	else
-		printf("both: %d", result_printf);
-	printf(")\n");
+void	test_return_value_printf_percentage_c1()
+{
+	redirect_stdout_to_null();
+
+	test_return_value_printf_percentage_x("c", printf("%c", 71), ft_printf("%c", 71));
+}
+
+void	test_return_value_printf_percentage_c2()
+{
+	redirect_stdout_to_null();
+
+	test_return_value_printf_percentage_x("c", printf("%c", 65), ft_printf("%c", 65));
 }
 
 
 int	main(void)
 {
 	test_return_value_printf_percentage_percentage();
-	test_return_value_printf_percentage_c();
+
+	test_return_value_printf_percentage_c1();
+	test_return_value_printf_percentage_c2();
 }
 
 
