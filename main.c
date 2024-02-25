@@ -26,20 +26,41 @@ void	test_return_value_printf_percentage_percentage()
 
 	restore_stdout();
 
-	printf("%% [return]: %s", result_printf == result_ft ? SUCCESS("OK"): FAIL("KO!"));
+	printf("%%%% [return]: %s", result_printf == result_ft ? SUCCESS("OK"): FAIL("KO!"));
 	printf(" (");
 	if (result_printf != result_ft)
 		printf("C: %d vs. FT: %d", result_printf, result_ft);
 	else
 		printf("both: %d", result_printf);
 	printf(")\n");
+}
 
+void	test_return_value_printf_percentage_c()
+{
+	int result_printf;
+	int result_ft;
+
+	redirect_stdout_to_null();
+
+	result_printf = printf("%c", 71);
+	result_ft = ft_printf("%c", 71);
+
+	restore_stdout();
+
+	printf("%%c [return]: %s", result_printf == result_ft ? SUCCESS("OK"): FAIL("KO!"));
+	printf(" (");
+	if (result_printf != result_ft)
+		printf("C: %d vs. FT: %d", result_printf, result_ft);
+	else
+		printf("both: %d", result_printf);
+	printf(")\n");
 }
 
 
 int	main(void)
 {
 	test_return_value_printf_percentage_percentage();
+	test_return_value_printf_percentage_c();
 }
 
 
