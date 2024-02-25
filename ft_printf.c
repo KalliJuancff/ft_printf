@@ -6,7 +6,7 @@
 /*   By: jfidalgo <jfidalgo@student.42bar(...).com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 09:43:05 by jfidalgo          #+#    #+#             */
-/*   Updated: 2024/02/25 18:46:04 by jfidalgo         ###   ########.fr       */
+/*   Updated: 2024/02/25 19:48:09 by jfidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,21 @@ int	write_string(char *s)
 	while (s[result] != '\0')
 	{
 		if (write_char(s[result]) == -1)
-			return (-1);;
+			return (-1);
 		result++;
 	}
 	return (result);
+}
+
+int	write_format(va_list vargs, char format)
+{
+	if (format == '%')
+		return (write_char('%'));
+	if (format == 'c')
+		return (write_char(va_arg(vargs, int)));
+	else if (format == 's')
+		return (write_string(va_arg(vargs, char *)));
+	return (write_char(format));
 }
 
 int	ft_printf(char const *format, ...)
@@ -50,13 +61,7 @@ int	ft_printf(char const *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			current = 0;
-			if (*format == '%')
-				current += write_char('%');
-			else if (*format == 'c')
-				current += write_char(va_arg(vargs, int));
-			else if (*format == 's')
-				current += write_string(va_arg(vargs, char *));
+			current = write_format(vargs, *format);
 			if (current == -1)
 				return (-1);
 			result += current;
