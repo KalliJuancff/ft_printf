@@ -6,7 +6,7 @@
 /*   By: jfidalgo <jfidalgo@student.42bar(...).com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 09:43:05 by jfidalgo          #+#    #+#             */
-/*   Updated: 2024/02/22 19:44:09 by jfidalgo         ###   ########.fr       */
+/*   Updated: 2024/02/25 18:46:04 by jfidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,32 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int	write_percent(void)
-{
-	write(1, "%", 1);
-	return (1);
-}
-
 int	write_char(int ch)
 {
-	write(1, &ch, 1);
-	return (1);
+	return (write(1, &ch, 1));
+}
+
+int	write_string(char *s)
+{
+	int	result;
+
+	if (s == NULL)
+		s = "(null)";
+	result = 0;
+	while (s[result] != '\0')
+	{
+		if (write_char(s[result]) == -1)
+			return (-1);;
+		result++;
+	}
+	return (result);
 }
 
 int	ft_printf(char const *format, ...)
 {
 	va_list	vargs;
 	int		result;
+	int		current;
 
 	result = 0;
 	if (format == NULL)
@@ -40,10 +50,16 @@ int	ft_printf(char const *format, ...)
 		if (*format == '%')
 		{
 			format++;
+			current = 0;
 			if (*format == '%')
-				result += write_percent();
+				current += write_char('%');
 			else if (*format == 'c')
-				result += write_char(va_arg(vargs, int));
+				current += write_char(va_arg(vargs, int));
+			else if (*format == 's')
+				current += write_string(va_arg(vargs, char *));
+			if (current == -1)
+				return (-1);
+			result += current;
 		}
 		else
 			result += write_char(*format);
