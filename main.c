@@ -6,6 +6,7 @@
 
 int	main(void)
 {
+	// %%
 	printf(   " C: %%\n");
 	ft_printf("FT: %%\n");
 	printf(   " C: %d\n", printf(   "%%"));
@@ -13,6 +14,7 @@ int	main(void)
 	printf(   "\n");
 
 
+	// %c
 	printf(   " C: %c\n", 71);
 	ft_printf("FT: %c\n", 71);
 	printf(   " C: %d\n", printf(   "%c", 71));
@@ -32,6 +34,7 @@ int	main(void)
 	printf(   "\n");
 
 
+	// %s
 	printf(   " C: %s\n", "GOTT");
 	ft_printf("FT: %s\n", "GOTT");
 	printf(   " C: %d\n", printf(   "%s", "GOTT"));
@@ -49,7 +52,6 @@ int	main(void)
 	printf(   " C: %d\n", printf(   "%s", (char *) NULL));
 	printf(   "FT: %d\n", ft_printf("%s", (char *) NULL));
 	printf(   "\n");
-
 
 	printf(   " C: GOTT\n");
 	ft_printf("FT: GOTT\n");
@@ -70,6 +72,7 @@ int	main(void)
 	printf(   "\n");
 
 
+	// %d
 	printf(   " C: %d\n", 7);
 	ft_printf("FT: %d\n", 7);
 	printf(   " C: %d\n", printf(   "%d", 7));
@@ -107,43 +110,121 @@ int	main(void)
 	printf(   "\n");
 
 
+	// %i
 	printf(   " C: %i\n", 7);
 	ft_printf("FT: %i\n", 7);
-	printf(   " C: %i\n", printf(   "%d", 7));
-	printf(   "FT: %i\n", ft_printf("%d", 7));
+	printf(   " C: %d\n", printf(   "%i", 7));
+	printf(   "FT: %d\n", ft_printf("%i", 7));
 
 	printf(   " C: %i\n", -7);
 	ft_printf("FT: %i\n", -7);
-	printf(   " C: %i\n", printf(   "%d", -7));
-	printf(   "FT: %i\n", ft_printf("%d", -7));
+	printf(   " C: %d\n", printf(   "%i", -7));
+	printf(   "FT: %d\n", ft_printf("%i", -7));
 
 	printf(   " C: %i\n", 0);
 	ft_printf("FT: %i\n", 0);
-	printf(   " C: %i\n", printf(   "%d", 0));
-	printf(   "FT: %i\n", ft_printf("%d", 0));
+	printf(   " C: %d\n", printf(   "%i", 0));
+	printf(   "FT: %d\n", ft_printf("%i", 0));
 
 	printf(   " C: %i\n", 25);
 	ft_printf("FT: %i\n", 25);
-	printf(   " C: %i\n", printf(   "%d", 25));
-	printf(   "FT: %i\n", ft_printf("%d", 25));
+	printf(   " C: %d\n", printf(   "%i", 25));
+	printf(   "FT: %d\n", ft_printf("%i", 25));
 
 	printf(   " C: %i\n", -43);
 	ft_printf("FT: %i\n", -43);
-	printf(   " C: %i\n", printf(   "%d", -43));
-	printf(   "FT: %i\n", ft_printf("%d", -43));
+	printf(   " C: %d\n", printf(   "%i", -43));
+	printf(   "FT: %d\n", ft_printf("%i", -43));
 
 	printf(   " C: %i\n", INT_MAX);
 	ft_printf("FT: %i\n", INT_MAX);
-	printf(   " C: %i\n", printf(   "%d", INT_MAX));
-	printf(   "FT: %i\n", ft_printf("%d", INT_MAX));
+	printf(   " C: %d\n", printf(   "%i", INT_MAX));
+	printf(   "FT: %d\n", ft_printf("%i", INT_MAX));
 
 	printf(   " C: %i\n", INT_MIN);
 	ft_printf("FT: %i\n", INT_MIN);
-	printf(   " C: %i\n", printf(   "%d", INT_MIN));
-	printf(   "FT: %i\n", ft_printf("%d", INT_MIN));
+	printf(   " C: %d\n", printf(   "%i", INT_MIN));
+	printf(   "FT: %d\n", ft_printf("%i", INT_MIN));
 	printf(   "\n");
 
 
+	// %x
+	printf(   " C: %x\n", 7);
+	ft_printf("FT: %x\n", 7);
+	printf(   " C: %d\n", printf(   "%x", 7));
+	printf(   "FT: %d\n", ft_printf("%x", 7));
+
+	printf(   " C: %x\n", -7);
+	ft_printf("FT: %x\n", -7);
+	printf(   " C: %d\n", printf(   "%x", -7));
+	printf(   "FT: %d\n", ft_printf("%x", -7));
+
+	printf(   " C: %x\n", 0);
+	ft_printf("FT: %x\n", 0);
+	printf(   " C: %d\n", printf(   "%x", 0));
+	printf(   "FT: %d\n", ft_printf("%x", 0));
+
+	printf(   " C: %x\n", 25);
+	ft_printf("FT: %x\n", 25);
+	printf(   " C: %d\n", printf(   "%x", 25));
+	printf(   "FT: %d\n", ft_printf("%x", 25));
+
+	printf(   " C: %x\n", -43);
+	ft_printf("FT: %x\n", -43);
+	printf(   " C: %d\n", printf(   "%x", -43));
+	printf(   "FT: %d\n", ft_printf("%x", -43));
+
+	printf(   " C: %x\n", INT_MAX);
+	ft_printf("FT: %x\n", INT_MAX);
+	printf(   " C: %d\n", printf(   "%x", INT_MAX));
+	printf(   "FT: %d\n", ft_printf("%x", INT_MAX));
+
+	printf(   " C: %x\n", INT_MIN);
+	ft_printf("FT: %x\n", INT_MIN);
+	printf(   " C: %d\n", printf(   "%x", INT_MIN));
+	printf(   "FT: %d\n", ft_printf("%x", INT_MIN));
+	printf(   "\n");
+
+
+	// %X
+	printf(   " C: %X\n", 7);
+	ft_printf("FT: %X\n", 7);
+	printf(   " C: %d\n", printf(   "%X", 7));
+	printf(   "FT: %d\n", ft_printf("%X", 7));
+
+	printf(   " C: %X\n", -7);
+	ft_printf("FT: %X\n", -7);
+	printf(   " C: %d\n", printf(   "%X", -7));
+	printf(   "FT: %d\n", ft_printf("%X", -7));
+
+	printf(   " C: %X\n", 0);
+	ft_printf("FT: %X\n", 0);
+	printf(   " C: %d\n", printf(   "%X", 0));
+	printf(   "FT: %d\n", ft_printf("%X", 0));
+
+	printf(   " C: %X\n", 25);
+	ft_printf("FT: %X\n", 25);
+	printf(   " C: %d\n", printf(   "%X", 25));
+	printf(   "FT: %d\n", ft_printf("%X", 25));
+
+	printf(   " C: %X\n", -43);
+	ft_printf("FT: %X\n", -43);
+	printf(   " C: %d\n", printf(   "%X", -43));
+	printf(   "FT: %d\n", ft_printf("%X", -43));
+
+	printf(   " C: %X\n", INT_MAX);
+	ft_printf("FT: %X\n", INT_MAX);
+	printf(   " C: %d\n", printf(   "%X", INT_MAX));
+	printf(   "FT: %d\n", ft_printf("%X", INT_MAX));
+
+	printf(   " C: %X\n", INT_MIN);
+	ft_printf("FT: %X\n", INT_MIN);
+	printf(   " C: %d\n", printf(   "%X", INT_MIN));
+	printf(   "FT: %d\n", ft_printf("%X", INT_MIN));
+	printf(   "\n");
+
+
+	// %w (NO soportado; no existe)
 	printf(   " C: %w\n", 7);
 	ft_printf("FT: %w\n", 7);
 	printf(   " C: %d\n", printf(   "%w", 71));
@@ -151,6 +232,7 @@ int	main(void)
 	printf(   "\n");
 
 
+	// NULL
 	printf(   " C: NULL\n");
 	ft_printf("FT: NULL\n");
 	printf(   " C: %d\n", printf(   NULL));

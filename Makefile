@@ -7,7 +7,8 @@ NAME = libftprintf.a
 SRC_FILES = ft_printf.c \
 	write_char.c \
 	write_string.c \
-	write_number.c
+	write_number.c \
+	write_hexa.c
 OBJ_FILES = ${SRC_FILES:.c=.o}
 DEP_FILES = ${SRC_FILES:.c=.d}
 

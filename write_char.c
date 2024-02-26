@@ -6,13 +6,13 @@
 /*   By: jfidalgo <jfidalgo@student.42bar(...).com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 20:43:37 by jfidalgo          #+#    #+#             */
-/*   Updated: 2024/02/25 20:43:46 by jfidalgo         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:31:48 by jfidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	write_char(int ch)
+int	write_char(int character)
 {
-	return (write(1, &ch, 1));
+	return (write(1, &character, 1));
 }
