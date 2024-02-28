@@ -29,9 +29,11 @@ all: ${NAME}
 clean:
 	rm -f ${OBJ_FILES}
 	rm -f ${DEP_FILES}
+	@rm -f main.o
 
 fclean: clean
 	rm -f ${NAME}
+	@rm -f a.out
 
 re: fclean all
 
