@@ -6,7 +6,7 @@
 /*   By: jfidalgo <jfidalgo@student.42bar(...).com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 09:43:05 by jfidalgo          #+#    #+#             */
-/*   Updated: 2024/02/26 18:41:03 by jfidalgo         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:21:56 by jfidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static int	write_format(va_list vargs, char format)
 		return (write_string(va_arg(vargs, char *)));
 	else if (format == 'd' || format == 'i')
 		return (write_number(va_arg(vargs, int)));
+	else if (format == 'u')
+		return (write_number(va_arg(vargs, unsigned int)));
 	else if (format == 'x')
 		return (write_hexa(va_arg(vargs, int), LOWERCASE));
 	else if (format == 'X')

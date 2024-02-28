@@ -6,16 +6,16 @@
 /*   By: jfidalgo <jfidalgo@student.42bar(...).com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 21:01:16 by jfidalgo          #+#    #+#             */
-/*   Updated: 2024/02/26 17:33:18 by jfidalgo         ###   ########.fr       */
+/*   Updated: 2024/02/28 12:19:03 by jfidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	write_number_aux(unsigned int number)
+static long	write_number_aux(unsigned long number)
 {
-	int	result1;
-	int	result2;
+	long	result1;
+	long	result2;
 
 	if (number < 10)
 		return (write_char(number + '0'));
@@ -31,9 +31,9 @@ static int	write_number_aux(unsigned int number)
 	}
 }
 
-int	write_number(int number)
+long	write_number(long number)
 {
-	int	result;
+	long	result;
 
 	if (number < 0)
 	{

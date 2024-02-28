@@ -213,6 +213,72 @@ int	main(void)
 	printf(   "\n");
 
 
+	// %u
+	printf(   "----\n");
+	printf(   "'%%u'\n");
+	printf(   "----\n");
+
+	printf(   " C: %u\n", 7);
+	ft_printf("FT: %u\n", 7);
+	redirect_stdout_to_null();
+	len_c = printf(   "%u", 7);
+	len_ft = ft_printf("%u", 7);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
+
+	printf(   " C: %u\n", -7);
+	ft_printf("FT: %u\n", -7);
+	redirect_stdout_to_null();
+	len_c = printf(   "%u", -7);
+	len_ft = ft_printf("%u", -7);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
+
+	printf(   " C: %u\n", 0);
+	ft_printf("FT: %u\n", 0);
+	redirect_stdout_to_null();
+	len_c = printf(   "%u", 0);
+	len_ft = ft_printf("%u", 0);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
+
+	printf(   " C: %u\n", 25);
+	ft_printf("FT: %u\n", 25);
+	redirect_stdout_to_null();
+	len_c = printf(   "%u", 25);
+	len_ft = ft_printf("%u", 25);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
+
+	printf(   " C: %u\n", -43);
+	ft_printf("FT: %u\n", -43);
+	redirect_stdout_to_null();
+	len_c = printf(   "%u", -43);
+	len_ft = ft_printf("%u", -43);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
+
+	printf(   " C: %u\n", UINT_MAX);
+	ft_printf("FT: %u\n", UINT_MAX);
+	redirect_stdout_to_null();
+	len_c = printf(   "%u", UINT_MAX);
+	len_ft = ft_printf("%u", UINT_MAX);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
+
+
 	// %x
 	printf(   "----\n");
 	printf(   "'%%x'\n");
