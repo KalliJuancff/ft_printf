@@ -6,7 +6,7 @@
 /*   By: jfidalgo <jfidalgo@student.42bar(...).com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:41:26 by jfidalgo          #+#    #+#             */
-/*   Updated: 2024/02/28 15:54:35 by jfidalgo         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:15:35 by jfidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,14 @@ int	write_hexa(long number, int uppercase)
 
 int	write_pointer(unsigned long address)
 {
-	int	result;
+	int	result1;
+	int	result2;
 
-	result = write_string("0x");
-	if (result == -1)
+	result1 = write_string("0x");
+	if (result1 == -1)
 		return (-1);
-	result += write_hexa_aux(address, LOWERCASE);
-	return (result);
+	result2 = write_hexa_aux(address, LOWERCASE);
+	if (result2 == -1)
+		return (-1);
+	return (result1 + result2);
 }

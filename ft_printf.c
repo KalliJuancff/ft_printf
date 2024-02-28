@@ -6,12 +6,11 @@
 /*   By: jfidalgo <jfidalgo@student.42bar(...).com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 09:43:05 by jfidalgo          #+#    #+#             */
-/*   Updated: 2024/02/28 16:53:48 by jfidalgo         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:01:53 by jfidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include <unistd.h>
 #include <stdlib.h>
 #include "ft_printf.h"
 

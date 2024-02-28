@@ -6,7 +6,7 @@
 /*   By: jfidalgo <jfidalgo@student.42bar(...).com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 20:48:16 by jfidalgo          #+#    #+#             */
-/*   Updated: 2024/02/26 17:33:43 by jfidalgo         ###   ########.fr       */
+/*   Updated: 2024/02/28 17:03:06 by jfidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	write_string(char *string)
 {
 	int	result;
 
+	result = 0;
 	if (string == NULL)
 		string = "(null)";
-	result = 0;
 	while (string[result] != '\0')
 	{
 		if (write_char(string[result]) == -1)
