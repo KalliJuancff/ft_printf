@@ -6,7 +6,7 @@
 /*   By: jfidalgo <jfidalgo@student.42bar(...).com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 09:43:05 by jfidalgo          #+#    #+#             */
-/*   Updated: 2024/02/28 16:41:26 by jfidalgo         ###   ########.fr       */
+/*   Updated: 2024/02/28 16:53:48 by jfidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,12 @@ int	ft_printf(char const *format, ...)
 		{
 			format++;
 			current = write_format(vargs, *format);
-			if (current == -1)
-				return (-1);
-			result += current;
 		}
 		else
-		{
 			current = write_char(*format);
- 			if (current == -1)
-				return (-1);
-			result += current;
-		}
+		if (current == -1)
+			return (-1);
+		result += current;
 		format++;
 	}
 	va_end(vargs);
