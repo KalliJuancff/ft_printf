@@ -4,239 +4,398 @@
 #include "ft_printf.h"
 
 
+void	redirect_stdout_to_null()
+{
+	freopen("/dev/null", "w", stdout);
+}
+
+void	restore_stdout()
+{
+	freopen("/dev/tty", "w", stdout);
+}
+
+
 int	main(void)
 {
+	int len_c, len_ft;
+
 	// %%
-	printf(   " C: %%\n");
-	ft_printf("FT: %%\n");
-	printf(   " C: %d\n", printf(   "%%"));
-	printf(   "FT: %d\n", ft_printf("%%"));
+	printf(   "----\n");
+	printf(   "'%%%%'\n");
+	printf(   "----\n");
+
+	printf(   " C: '%%'\n");
+	ft_printf("FT: '%%'\n");
+	redirect_stdout_to_null();
+	len_c = printf(   "%%");
+	len_ft = ft_printf("%%");
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
 	printf(   "\n");
 
 
 	// %c
-	printf(   " C: %c\n", 71);
-	ft_printf("FT: %c\n", 71);
-	printf(   " C: %d\n", printf(   "%c", 71));
-	printf(   "FT: %d\n", ft_printf("%c", 71));
+	printf(   "----\n");
+	printf(   "'%%c'\n");
+	printf(   "----\n");
+
+	printf(   " C: '%c'\n", 71);
+	ft_printf("FT: '%c'\n", 71);
+	redirect_stdout_to_null();
+	len_c = printf(   "%c", 71);
+	len_ft = ft_printf("%c", 71);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
 	printf(   "\n");
 
-	printf(   " C: %c\n", 103);
-	ft_printf("FT: %c\n", 103);
-	printf(   " C: %d\n", printf(   "%c", 103));
-	printf(   "FT: %d\n", ft_printf("%c", 103));
+	printf(   " C: '%c'\n", 103);
+	ft_printf("FT: '%c'\n", 103);
+	redirect_stdout_to_null();
+	len_c = printf(   "%c", 103);
+	len_ft = ft_printf("%c", 103);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
 	printf(   "\n");
 
-	printf(   " C: %c\n", 0);
-	ft_printf("FT: %c\n", 0);
-	printf(   " C: %d\n", printf(   "%c", 0));
-	printf(   "FT: %d\n", ft_printf("%c", 0));
+	printf(   " C: '%c'\n", 0);
+	ft_printf("FT: '%c'\n", 0);
+	redirect_stdout_to_null();
+	len_c = printf(   "%c", 0);
+	len_ft = ft_printf("%c", 0);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
 	printf(   "\n");
 
 
 	// %s
+	printf(   "----\n");
+	printf(   "'%%s'\n");
+	printf(   "----\n");
+
 	printf(   " C: %s\n", "GOTT");
 	ft_printf("FT: %s\n", "GOTT");
-	printf(   " C: %d\n", printf(   "%s", "GOTT"));
-	printf(   "FT: %d\n", ft_printf("%s", "GOTT"));
+	redirect_stdout_to_null();
+	len_c = printf(   "%s", "GOTT");
+	len_ft = ft_printf("%s", "GOTT");
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
 	printf(   "\n");
 
 	printf(   " C: %s\n", "");
 	ft_printf("FT: %s\n", "");
-	printf(   " C: %d\n", printf(   "%s", ""));
-	printf(   "FT: %d\n", ft_printf("%s", ""));
+	redirect_stdout_to_null();
+	len_c = printf(   "%s", "");
+	len_ft = ft_printf("%s", "");
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
 	printf(   "\n");
 
 	printf(   " C: %s\n", (char *) NULL);
 	ft_printf("FT: %s\n", (char *) NULL);
-	printf(   " C: %d\n", printf(   "%s", (char *) NULL));
-	printf(   "FT: %d\n", ft_printf("%s", (char *) NULL));
+	redirect_stdout_to_null();
+	len_c = printf(   "%s", (char *) NULL);
+	len_ft = ft_printf("%s", (char *) NULL);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
 	printf(   "\n");
 
 	printf(   " C: GOTT\n");
 	ft_printf("FT: GOTT\n");
-	printf(   " C: %d\n", printf(   "GOTT"));
-	printf(   "FT: %d\n", ft_printf("GOTT"));
+	redirect_stdout_to_null();
+	len_c = printf(   "GOTT");
+	len_ft = ft_printf("GOTT");
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
 	printf(   "\n");
 
 	printf(   " C: %s\n", "");
 	ft_printf("FT: %s\n", "");
-	printf(   " C: %d\n", printf(   "%s", ""));
-	printf(   "FT: %d\n", ft_printf("%s", ""));
+	redirect_stdout_to_null();
+	len_c = printf(   "%s", "");
+	len_ft = ft_printf("%s", "");
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
 	printf(   "\n");
 
 	printf(   " C: %s\n", (char *) NULL);
 	ft_printf("FT: %s\n", (char *) NULL);
-	printf(   " C: %d\n", printf(   "%s", (char *) NULL));
-	printf(   "FT: %d\n", ft_printf("%s", (char *) NULL));
+	redirect_stdout_to_null();
+	len_c = printf(   "%s", (char *) NULL);
+	len_ft = ft_printf("%s", (char *) NULL);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
 	printf(   "\n");
 
 
-	// %d
+	// %d (= %i)
+	printf(   "----\n");
+	printf(   "'%%d' (= '%%i')\n");
+	printf(   "----\n");
+
 	printf(   " C: %d\n", 7);
 	ft_printf("FT: %d\n", 7);
-	printf(   " C: %d\n", printf(   "%d", 7));
-	printf(   "FT: %d\n", ft_printf("%d", 7));
+	redirect_stdout_to_null();
+	len_c = printf(   "%d", 7);
+	len_ft = ft_printf("%d", 7);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %d\n", -7);
 	ft_printf("FT: %d\n", -7);
-	printf(   " C: %d\n", printf(   "%d", -7));
-	printf(   "FT: %d\n", ft_printf("%d", -7));
+	redirect_stdout_to_null();
+	len_c = printf(   "%d", -7);
+	len_ft = ft_printf("%d", -7);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %d\n", 0);
 	ft_printf("FT: %d\n", 0);
-	printf(   " C: %d\n", printf(   "%d", 0));
-	printf(   "FT: %d\n", ft_printf("%d", 0));
+	redirect_stdout_to_null();
+	len_c = printf(   "%d", 0);
+	len_ft = ft_printf("%d", 0);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %d\n", 25);
 	ft_printf("FT: %d\n", 25);
-	printf(   " C: %d\n", printf(   "%d", 25));
-	printf(   "FT: %d\n", ft_printf("%d", 25));
+	redirect_stdout_to_null();
+	len_c = printf(   "%d", 25);
+	len_ft = ft_printf("%d", 25);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %d\n", -43);
 	ft_printf("FT: %d\n", -43);
-	printf(   " C: %d\n", printf(   "%d", -43));
-	printf(   "FT: %d\n", ft_printf("%d", -43));
+	redirect_stdout_to_null();
+	len_c = printf(   "%d", -43);
+	len_ft = ft_printf("%d", -43);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %d\n", INT_MAX);
 	ft_printf("FT: %d\n", INT_MAX);
-	printf(   " C: %d\n", printf(   "%d", INT_MAX));
-	printf(   "FT: %d\n", ft_printf("%d", INT_MAX));
+	redirect_stdout_to_null();
+	len_c = printf(   "%d", INT_MAX);
+	len_ft = ft_printf("%d", INT_MAX);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %d\n", INT_MIN);
 	ft_printf("FT: %d\n", INT_MIN);
-	printf(   " C: %d\n", printf(   "%d", INT_MIN));
-	printf(   "FT: %d\n", ft_printf("%d", INT_MIN));
-	printf(   "\n");
-
-
-	// %i
-	printf(   " C: %i\n", 7);
-	ft_printf("FT: %i\n", 7);
-	printf(   " C: %d\n", printf(   "%i", 7));
-	printf(   "FT: %d\n", ft_printf("%i", 7));
-
-	printf(   " C: %i\n", -7);
-	ft_printf("FT: %i\n", -7);
-	printf(   " C: %d\n", printf(   "%i", -7));
-	printf(   "FT: %d\n", ft_printf("%i", -7));
-
-	printf(   " C: %i\n", 0);
-	ft_printf("FT: %i\n", 0);
-	printf(   " C: %d\n", printf(   "%i", 0));
-	printf(   "FT: %d\n", ft_printf("%i", 0));
-
-	printf(   " C: %i\n", 25);
-	ft_printf("FT: %i\n", 25);
-	printf(   " C: %d\n", printf(   "%i", 25));
-	printf(   "FT: %d\n", ft_printf("%i", 25));
-
-	printf(   " C: %i\n", -43);
-	ft_printf("FT: %i\n", -43);
-	printf(   " C: %d\n", printf(   "%i", -43));
-	printf(   "FT: %d\n", ft_printf("%i", -43));
-
-	printf(   " C: %i\n", INT_MAX);
-	ft_printf("FT: %i\n", INT_MAX);
-	printf(   " C: %d\n", printf(   "%i", INT_MAX));
-	printf(   "FT: %d\n", ft_printf("%i", INT_MAX));
-
-	printf(   " C: %i\n", INT_MIN);
-	ft_printf("FT: %i\n", INT_MIN);
-	printf(   " C: %d\n", printf(   "%i", INT_MIN));
-	printf(   "FT: %d\n", ft_printf("%i", INT_MIN));
+	redirect_stdout_to_null();
+	len_c = printf(   "%d", INT_MIN);
+	len_ft = ft_printf("%d", INT_MIN);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
 	printf(   "\n");
 
 
 	// %x
+	printf(   "----\n");
+	printf(   "'%%x'\n");
+	printf(   "----\n");
+
 	printf(   " C: %x\n", 7);
 	ft_printf("FT: %x\n", 7);
-	printf(   " C: %d\n", printf(   "%x", 7));
-	printf(   "FT: %d\n", ft_printf("%x", 7));
+	redirect_stdout_to_null();
+	len_c = printf(   "%x", 7);
+	len_ft = ft_printf("%x", 7);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %x\n", -7);
 	ft_printf("FT: %x\n", -7);
-	printf(   " C: %d\n", printf(   "%x", -7));
-	printf(   "FT: %d\n", ft_printf("%x", -7));
+	redirect_stdout_to_null();
+	len_c = printf(   "%x", -7);
+	len_ft = ft_printf("%x", -7);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %x\n", 0);
 	ft_printf("FT: %x\n", 0);
-	printf(   " C: %d\n", printf(   "%x", 0));
-	printf(   "FT: %d\n", ft_printf("%x", 0));
+	redirect_stdout_to_null();
+	len_c = printf(   "%x", 0);
+	len_ft = ft_printf("%x", 0);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %x\n", 25);
 	ft_printf("FT: %x\n", 25);
-	printf(   " C: %d\n", printf(   "%x", 25));
-	printf(   "FT: %d\n", ft_printf("%x", 25));
+	redirect_stdout_to_null();
+	len_c = printf(   "%x", 25);
+	len_ft = ft_printf("%x", 25);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %x\n", -43);
 	ft_printf("FT: %x\n", -43);
-	printf(   " C: %d\n", printf(   "%x", -43));
-	printf(   "FT: %d\n", ft_printf("%x", -43));
+	redirect_stdout_to_null();
+	len_c = printf(   "%x", -43);
+	len_ft = ft_printf("%x", -43);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %x\n", INT_MAX);
 	ft_printf("FT: %x\n", INT_MAX);
-	printf(   " C: %d\n", printf(   "%x", INT_MAX));
-	printf(   "FT: %d\n", ft_printf("%x", INT_MAX));
+	redirect_stdout_to_null();
+	len_c = printf(   "%x", INT_MAX);
+	len_ft = ft_printf("%x", INT_MAX);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %x\n", INT_MIN);
 	ft_printf("FT: %x\n", INT_MIN);
-	printf(   " C: %d\n", printf(   "%x", INT_MIN));
-	printf(   "FT: %d\n", ft_printf("%x", INT_MIN));
+	redirect_stdout_to_null();
+	len_c = printf(   "%x", INT_MIN);
+	len_ft = ft_printf("%x", INT_MIN);
+	printf(   "\n");
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
 	printf(   "\n");
 
 
 	// %X
+	printf(   "----\n");
+	printf(   "'%%X'\n");
+	printf(   "----\n");
+
 	printf(   " C: %X\n", 7);
 	ft_printf("FT: %X\n", 7);
-	printf(   " C: %d\n", printf(   "%X", 7));
-	printf(   "FT: %d\n", ft_printf("%X", 7));
+	redirect_stdout_to_null();
+	len_c = printf(   "%X", 7);
+	len_ft = ft_printf("%X", 7);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %X\n", -7);
 	ft_printf("FT: %X\n", -7);
-	printf(   " C: %d\n", printf(   "%X", -7));
-	printf(   "FT: %d\n", ft_printf("%X", -7));
+	redirect_stdout_to_null();
+	len_c = printf(   "%X", -7);
+	len_ft = ft_printf("%X", -7);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %X\n", 0);
 	ft_printf("FT: %X\n", 0);
-	printf(   " C: %d\n", printf(   "%X", 0));
-	printf(   "FT: %d\n", ft_printf("%X", 0));
+	redirect_stdout_to_null();
+	len_c = printf(   "%X", 0);
+	len_ft = ft_printf("%X", 0);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %X\n", 25);
 	ft_printf("FT: %X\n", 25);
-	printf(   " C: %d\n", printf(   "%X", 25));
-	printf(   "FT: %d\n", ft_printf("%X", 25));
+	redirect_stdout_to_null();
+	len_c = printf(   "%X", 25);
+	len_ft = ft_printf("%X", 25);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %X\n", -43);
 	ft_printf("FT: %X\n", -43);
-	printf(   " C: %d\n", printf(   "%X", -43));
-	printf(   "FT: %d\n", ft_printf("%X", -43));
+	redirect_stdout_to_null();
+	len_c = printf(   "%X", -43);
+	len_ft = ft_printf("%X", -43);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %X\n", INT_MAX);
 	ft_printf("FT: %X\n", INT_MAX);
-	printf(   " C: %d\n", printf(   "%X", INT_MAX));
-	printf(   "FT: %d\n", ft_printf("%X", INT_MAX));
+	redirect_stdout_to_null();
+	len_c = printf(   "%X", INT_MAX);
+	len_ft = ft_printf("%X", INT_MAX);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
 
 	printf(   " C: %X\n", INT_MIN);
 	ft_printf("FT: %X\n", INT_MIN);
-	printf(   " C: %d\n", printf(   "%X", INT_MIN));
-	printf(   "FT: %d\n", ft_printf("%X", INT_MIN));
+	redirect_stdout_to_null();
+	len_c = printf(   "%X", INT_MIN);
+	len_ft = ft_printf("%X", INT_MIN);
+	printf(   "\n");
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
 	printf(   "\n");
 
 
-	// %w (NO soportado; no existe)
+	// %w (NO soportado)
+	printf(   "----\n");
+	printf(   "'%%w' (no soportado)\n");
+	printf(   "----\n");
+
 	printf(   " C: %w\n", 7);
 	ft_printf("FT: %w\n", 7);
-	printf(   " C: %d\n", printf(   "%w", 71));
-	printf(   "FT: %d\n", ft_printf("%w", 71));
+	redirect_stdout_to_null();
+	len_c = printf(   "%w", 7);
+	len_ft = ft_printf("%w", 7);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
 	printf(   "\n");
 
 
 	// NULL
-	printf(   " C: NULL\n");
-	ft_printf("FT: NULL\n");
-	printf(   " C: %d\n", printf(   NULL));
-	printf(   "FT: %d\n", ft_printf(NULL));
+	printf(   "------\n");
+	printf(   "'NULL'\n");
+	printf(   "------\n");
+
+	printf(   " C: %s\n", NULL);
+	ft_printf("FT: %s\n", NULL);
+	redirect_stdout_to_null();
+	len_c = printf("%s", NULL);
+	len_ft = ft_printf("%s", NULL);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
 	printf(   "\n");
 }
 
