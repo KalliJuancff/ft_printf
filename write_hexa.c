@@ -6,15 +6,15 @@
 /*   By: jfidalgo <jfidalgo@student.42bar(...).com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:41:26 by jfidalgo          #+#    #+#             */
-/*   Updated: 2024/02/26 18:33:31 by jfidalgo         ###   ########.fr       */
+/*   Updated: 2024/02/28 15:54:35 by jfidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	write_hexa_digit(unsigned int digit, int uppercase)
+static int	write_hexa_digit(int digit, int uppercase)
 {
-	char first_letter;
+	char	first_letter;
 
 	first_letter = 'A';
 	if (!uppercase)
@@ -24,7 +24,7 @@ static int	write_hexa_digit(unsigned int digit, int uppercase)
 	return (write_char(digit + '0'));
 }
 
-static int	write_hexa_aux(unsigned int number, int uppercase)
+static int	write_hexa_aux(unsigned long number, int uppercase)
 {
 	int	result1;
 	int	result2;
@@ -40,20 +40,31 @@ static int	write_hexa_aux(unsigned int number, int uppercase)
 		if (result2 == -1)
 			return (-1);
 		return (result1 + result2);
-	}	
+	}
 }
 
-int	write_hexa(int number, int uppercase)
+int	write_hexa(long number, int uppercase)
 {
 	int	result;
 
 	if (number < 0)
 	{
-		result = (write_hexa_aux((unsigned int) number, uppercase));
+		result = write_hexa_aux((unsigned int) number, uppercase);
 		if (result == -1)
 			return (-1);
 		return (result);
 	}
 	else
-		return (write_hexa_aux(number, uppercase));
+		return (write_hexa_aux((unsigned int) number, uppercase));
+}
+
+int	write_pointer(unsigned long address)
+{
+	int	result;
+
+	result = write_string("0x");
+	if (result == -1)
+		return (-1);
+	result += write_hexa_aux(address, LOWERCASE);
+	return (result);
 }

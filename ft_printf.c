@@ -6,7 +6,7 @@
 /*   By: jfidalgo <jfidalgo@student.42bar(...).com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 09:43:05 by jfidalgo          #+#    #+#             */
-/*   Updated: 2024/02/28 12:21:56 by jfidalgo         ###   ########.fr       */
+/*   Updated: 2024/02/28 15:52:20 by jfidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,14 @@
 #include <stdlib.h>
 #include "ft_printf.h"
 
-#define LOWERCASE 0
-#define UPPERCASE 1
-
 static int	write_format(va_list vargs, char format)
 {
 	if (format == '%')
 		return (write_char('%'));
 	if (format == 'c')
 		return (write_char(va_arg(vargs, int)));
+	if (format == 'p')
+		return (write_pointer(va_arg(vargs, unsigned long)));
 	else if (format == 's')
 		return (write_string(va_arg(vargs, char *)));
 	else if (format == 'd' || format == 'i')

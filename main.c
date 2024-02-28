@@ -433,6 +433,22 @@ int	main(void)
 	printf(   "\n");
 
 
+	// %p
+	printf(   "----\n");
+	printf(   "'%%p'\n");
+	printf(   "----\n");
+
+	printf(   " C: %p\n", &len_c);
+	ft_printf("FT: %p\n", &len_c);
+	redirect_stdout_to_null();
+	len_c = printf(   "%p", &len_c);
+	len_ft = ft_printf("%p", &len_c);
+	restore_stdout();
+	printf(   " C: %d\n", len_c);
+	printf(   "FT: %d\n", len_ft);
+	printf(   "\n");
+
+
 	// %w (NO soportado)
 	printf(   "----\n");
 	printf(   "'%%w' (no soportado)\n");
