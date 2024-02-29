@@ -6,7 +6,7 @@
 /*   By: jfidalgo <jfidalgo@student.42bar(...).com  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 16:41:26 by jfidalgo          #+#    #+#             */
-/*   Updated: 2024/02/28 17:15:35 by jfidalgo         ###   ########.fr       */
+/*   Updated: 2024/02/29 21:21:51 by jfidalgo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	write_hexa_aux(unsigned long number, int uppercase)
 	}
 }
 
-int	write_hexa(long number, int uppercase)
+int	write_hexa(unsigned int number, int uppercase)
 {
 	int	result;
 
