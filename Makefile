@@ -1,47 +1,74 @@
-# REGLA N:
-# target N/objetivo N	prerequisitos N/dependencias N/
-#	recipe N/acciones N/comandos N/instrucciones N
+###############
+#  VARIABLES  #
+###############
+
+NAME := libftprintf.a
+SRC_FILES := write_char.c \
+             write_string.c \
+             write_number.c \
+             write_hexa.c \
+             ft_printf.c
+OBJ_FILES := $(patsubst %.c,%.o,$(SRC_FILES))
+DEP_FILES := $(patsubst %.c,%.d,$(SRC_FILES))
+MAKE_FILENAME := $(shell echo $(MAKEFILE_LIST) | awk '{print $1}')
 
 
-NAME = libftprintf.a
-SRC_FILES = ft_printf.c \
-	write_char.c \
-	write_string.c \
-	write_number.c \
-	write_hexa.c
-OBJ_FILES = ${SRC_FILES:.c=.o}
-DEP_FILES = ${SRC_FILES:.c=.d}
+###############
+#  OVERRIDES  #
+###############
+
+CFLAGS = -Wall -Wextra -Werror -MMD
+ARFLAGS = rcs
 
 
-${NAME}: ${OBJ_FILES}
-	ar rcs ${NAME} $?
+###########
+#  RULES  #
+###########
 
-%.o: %.c
-	gcc -o $@ -Wall -Wextra -Werror -MMD -c $<
+$(NAME) : $(OBJ_FILES)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJ_FILES)
 
--include ${DEP_FILES}
+-include $(DEP_FILES)
+
+%.o : %.c $(MAKE_FILENAME)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+main.o : main.c $(MAKE_FILENAME)
+	$(CC) $(CFLAGS) -Wno-format -c $< -o $@
+	$(CC) main.o $(NAME)
 
 
-.PHONY: all clean fclean re  norm comp run
+###############
+# PHONY RULES #
+# #############
 
-all: ${NAME}
+.PHONY: all clean fclean re norm comp run info
 
-clean:
-	rm -f ${OBJ_FILES}
-	rm -f ${DEP_FILES}
-	@rm -f main.o
+all : $(NAME)
 
-fclean: clean
-	rm -f ${NAME}
-	@rm -f a.out
+clean :
+	$(RM) $(OBJ_FILES)
+	$(RM) main.o
+	$(RM) $(DEP_FILES)
+	$(RM) main.d
 
-re: fclean all
+fclean : clean
+	$(RM) $(NAME)
+	$(RM) a.out
 
-norm:
-	norminette ${SRC_FILES} *.h
+re : fclean all
 
-comp:
-	gcc -Wall -Wextra -Werror -Wno-format ${SRC_FILES}  main.c
+norm :
+	@norminette $(SRC_FILES)
 
-run:
+comp : $(NAME) main.o
+
+run : comp
 	@./a.out
+
+info :
+	$(info $(OBJ_FILES))
+	$(info $(CC))
+	$(info $(ARFLAGS))
+	$(info $(CFLAGS))
+	$(info $(MAKE_FILENAME))
