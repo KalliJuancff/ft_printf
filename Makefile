@@ -27,10 +27,12 @@ ARFLAGS = rcs
 #  RULES  #
 ###########
 
-$(NAME) : $(OBJ_FILES)
-	$(MAKE_COMMAND) -C $(LIBFT)
+$(NAME) : $(OBJ_FILES) $(LIBFT_DIR)/$(LIBFT_FILENAME)
 	cp $(LIBFT_DIR)/$(LIBFT_FILENAME) ./$(NAME)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ_FILES)
+
+$(LIBFT_DIR)/$(LIBFT_FILENAME) :
+	$(MAKE_COMMAND) -C $(LIBFT_DIR)
 
 -include $(DEP_FILES)
 
@@ -58,6 +60,7 @@ clean :
 	$(RM) main.d
 
 fclean : clean
+	$(MAKE_COMMAND) -C $(LIBFT_DIR) fclean
 	$(RM) $(NAME)
 	$(RM) a.out
 
