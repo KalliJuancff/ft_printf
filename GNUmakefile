@@ -7,7 +7,7 @@ SRC_FILES := write_char.c \
              write_string.c \
              write_number.c \
              write_hexa.c \
-			 ft_printf.c
+             ft_printf.c
 OBJ_FILES := $(patsubst %.c,%.o,$(SRC_FILES))
 DEP_FILES := $(patsubst %.c,%.d,$(SRC_FILES))
 
@@ -60,9 +60,9 @@ re : fclean all
 norm :
 	@norminette $(SRC_FILES)
 
-comp : main.o $(NAME)
+comp : $(NAME) main.o
 
-run: comp
+run : comp
 	@./a.out
 
 info :
