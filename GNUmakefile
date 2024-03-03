@@ -10,6 +10,7 @@ SRC_FILES := write_char.c \
              ft_printf.c
 OBJ_FILES := $(patsubst %.c,%.o,$(SRC_FILES))
 DEP_FILES := $(patsubst %.c,%.d,$(SRC_FILES))
+MAKE_FILENAME := $(shell echo $(MAKEFILE_LIST) | awk '{print $1}')
 
 
 ###############
@@ -24,15 +25,15 @@ ARFLAGS = rcs
 #  RULES  #
 ###########
 
-$(NAME) : GNUmakefile $(OBJ_FILES)
+$(NAME) : $(OBJ_FILES)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ_FILES)
 
 -include $(DEP_FILES)
 
-%.o : %.c
+%.o : %.c $(MAKE_FILENAME)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-main.o : main.c
+main.o : main.c $(MAKE_FILENAME)
 	$(CC) $(CFLAGS) -Wno-format -c $< -o $@
 	$(CC) main.o $(NAME)
 
@@ -70,3 +71,4 @@ info :
 	$(info $(CC))
 	$(info $(ARFLAGS))
 	$(info $(CFLAGS))
+	$(info $(MAKE_FILENAME))
