@@ -1,29 +1,51 @@
-NAME = libftprintf.a
-OBJS = write_char.o \
-	write_number.o \
-	write_string.o \
-	write_hexa.o \
-	ft_printf.o
-DEPS = $(OBJS:%.o=%.d)
+###############
+#  VARIABLES  #
+###############
+
+NAME := libftprintf.a
+SRC_FILES := write_char.c \
+             write_string.c \
+             write_number.c \
+             write_hexa.c
+OBJ_FILES := $(patsubst %.c,%.o,$(SRC_FILES))
+DEP_FILES := $(patsubst %.c,%.d,$(SRC_FILES))
+
+
+#############
+# OVERRIDES #
+# ###########
+
+ARFLAGS = rcs
 CFLAGS = -Wall -Wextra -Werror
 
-$(NAME) : $(OBJS) Makefile
-	$(AR) rcs $(NAME) $(OBJS)
+
+$(NAME) : GNUmakefile $(OBJ_FILES)
+		$(AR) $(ARFLAGS) $(NAME) $(OBJ_FILES)
 
 %.o : %.c
-	$(CC) -MMD $(CFLAGS) -c $< -o $@
--include $(DEPS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 
-.PHONY: all clean fclean re
+###############
+# PHONY RULES #
+# #############
+
+.PHONY: all clean fclean re info
 
 all : $(NAME)
 
 clean :
-	rm -f $(OBJS)
-	rm -f $(DEPS)
+	$(RM) $(OBJ_FILES)
+	$(RM) $(DEP_FILES)
 
 fclean : clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
-re : fclean $(NAME)
+re : fclean all
+
+info :
+	$(info $(SRC_FILES))
+	$(info $(OBJ_FILES))
+	$(info $(CC))
+	$(info $(ARFLAGS))
+	$(info $(CFLAGS))
