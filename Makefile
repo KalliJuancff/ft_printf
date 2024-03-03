@@ -11,6 +11,8 @@ SRC_FILES := write_char.c \
 OBJ_FILES := $(patsubst %.c,%.o,$(SRC_FILES))
 DEP_FILES := $(patsubst %.c,%.d,$(SRC_FILES))
 MAKE_FILENAME := $(shell echo $(MAKEFILE_LIST) | awk '{print $1}')
+LIBFT_DIR := libft
+LIBFT_FILENAME := libft.a
 
 
 ###############
@@ -26,6 +28,8 @@ ARFLAGS = rcs
 ###########
 
 $(NAME) : $(OBJ_FILES)
+	$(MAKE_COMMAND) -C $(LIBFT)
+	cp $(LIBFT_DIR)/$(LIBFT_FILENAME) ./$(NAME)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJ_FILES)
 
 -include $(DEP_FILES)
@@ -47,6 +51,7 @@ main.o : main.c $(MAKE_FILENAME)
 all : $(NAME)
 
 clean :
+	$(MAKE_COMMAND) -C $(LIBFT_DIR) clean
 	$(RM) $(OBJ_FILES)
 	$(RM) main.o
 	$(RM) $(DEP_FILES)
@@ -72,3 +77,4 @@ info :
 	$(info $(ARFLAGS))
 	$(info $(CFLAGS))
 	$(info $(MAKE_FILENAME))
+	$(info $(MAKE_COMMAND))
